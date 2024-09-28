@@ -1,0 +1,724 @@
+{
+	"connections": [
+		{
+			"from": "sdrhombus",
+			"from_port": 0,
+			"to": "sdshow",
+			"to_port": 0
+		},
+		{
+			"from": "transform2",
+			"from_port": 0,
+			"to": "tile2x2",
+			"to_port": 1
+		},
+		{
+			"from": "transform2",
+			"from_port": 0,
+			"to": "tile2x2",
+			"to_port": 2
+		},
+		{
+			"from": "transform2",
+			"from_port": 0,
+			"to": "tile2x2",
+			"to_port": 3
+		},
+		{
+			"from": "transform2",
+			"from_port": 0,
+			"to": "tile2x2",
+			"to_port": 0
+		},
+		{
+			"from": "tile2x2",
+			"from_port": 0,
+			"to": "warp",
+			"to_port": 0
+		},
+		{
+			"from": "fbm",
+			"from_port": 0,
+			"to": "warp",
+			"to_port": 1
+		},
+		{
+			"from": "sdshow",
+			"from_port": 0,
+			"to": "blend",
+			"to_port": 0
+		},
+		{
+			"from": "blend",
+			"from_port": 0,
+			"to": "transform2",
+			"to_port": 0
+		},
+		{
+			"from": "gradient",
+			"from_port": 0,
+			"to": "blend",
+			"to_port": 1
+		},
+		{
+			"from": "warp",
+			"from_port": 0,
+			"to": "circle_splatter",
+			"to_port": 0
+		},
+		{
+			"from": "circle_splatter",
+			"from_port": 0,
+			"to": "buffer",
+			"to_port": 0
+		},
+		{
+			"from": "fbm_2",
+			"from_port": 0,
+			"to": "warp_2",
+			"to_port": 1
+		},
+		{
+			"from": "buffer",
+			"from_port": 0,
+			"to": "tile2x2_2",
+			"to_port": 1
+		},
+		{
+			"from": "buffer",
+			"from_port": 0,
+			"to": "tile2x2_2",
+			"to_port": 0
+		},
+		{
+			"from": "buffer",
+			"from_port": 0,
+			"to": "tile2x2_2",
+			"to_port": 2
+		},
+		{
+			"from": "buffer",
+			"from_port": 0,
+			"to": "tile2x2_2",
+			"to_port": 3
+		},
+		{
+			"from": "tile2x2_2",
+			"from_port": 0,
+			"to": "warp_2",
+			"to_port": 0
+		},
+		{
+			"from": "warp_2",
+			"from_port": 0,
+			"to": "tiler",
+			"to_port": 0
+		},
+		{
+			"from": "tiler",
+			"from_port": 0,
+			"to": "buffer_2",
+			"to_port": 0
+		},
+		{
+			"from": "buffer_2",
+			"from_port": 0,
+			"to": "normal_map",
+			"to_port": 0
+		},
+		{
+			"from": "normal_map",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 4
+		},
+		{
+			"from": "buffer_2",
+			"from_port": 0,
+			"to": "invert",
+			"to_port": 0
+		},
+		{
+			"from": "invert",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 6
+		},
+		{
+			"from": "buffer_2",
+			"from_port": 0,
+			"to": "occlusion",
+			"to_port": 0
+		},
+		{
+			"from": "occlusion",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 5
+		},
+		{
+			"from": "buffer_2",
+			"from_port": 0,
+			"to": "tones",
+			"to_port": 0
+		},
+		{
+			"from": "tones",
+			"from_port": 0,
+			"to": "colorize",
+			"to_port": 0
+		},
+		{
+			"from": "colorize",
+			"from_port": 0,
+			"to": "adjust_hsv",
+			"to_port": 0
+		},
+		{
+			"from": "adjust_hsv",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "226",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_paths": {
+				"Godot": "/home/wojtekpil/DataDrive/material_maker/exports/grass_my_game/cloth"
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 2791,
+				"y": 138
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.05,
+				"emission_energy": 0,
+				"flags_transparent": false,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 1,
+				"size": 7,
+				"sss": 0
+			},
+			"seed": 19059,
+			"type": "material"
+		},
+		{
+			"name": "sdrhombus",
+			"node_position": {
+				"x": -655,
+				"y": -151
+			},
+			"parameters": {
+				"cx": 0,
+				"cy": 0,
+				"d": 0.89,
+				"r": 0.97
+			},
+			"seed": 41158,
+			"shader_model": {
+				"code": "",
+				"global": "float sdVesica(in vec2 i, in float r, in float d)\n{\n\tvec2 p=abs(i);\n\tfloat b=(r*r-d*d);\n\tvec2 a=vec2(p.y*d,p.x+d);\n\ta*=a*sign(a);\n\treturn((a.x/b>a.y))?length(p-vec2(0,sqrt(b)))*sign(d)\n                        :length(p+vec2(d,0))-r;\n}",
+				"inputs": [
+
+				],
+				"instance": "",
+				"longdesc": "Distance to a vesica shape (intersection of two disks).",
+				"name": "sdVesica",
+				"outputs": [
+					{
+						"longdesc": "The rhombus as a signed distance function",
+						"sdf2d": "sdVesica($uv-vec2($cx+0.5, $cy+0.5), $r, $d)",
+						"shortdesc": "Output",
+						"type": "sdf2d"
+					}
+				],
+				"parameters": [
+					{
+						"control": "None",
+						"default": 0.5,
+						"label": "D",
+						"max": 1,
+						"min": 0,
+						"name": "d",
+						"shortdesc": "D",
+						"step": 0.01,
+						"type": "float"
+					},
+					{
+						"control": "P1.x",
+						"default": 1,
+						"label": "R",
+						"max": 1,
+						"min": 0,
+						"name": "r",
+						"shortdesc": "R",
+						"step": 0.01,
+						"type": "float"
+					},
+					{
+						"control": "P1.x",
+						"default": 0,
+						"label": "Center X",
+						"longdesc": "The position of the center on the X axis",
+						"max": 1,
+						"min": -1,
+						"name": "cx",
+						"shortdesc": "Center.x",
+						"step": 0.01,
+						"type": "float"
+					},
+					{
+						"control": "P1.y",
+						"default": 0,
+						"label": "Center Y",
+						"longdesc": "The position of the center on the Y axis",
+						"max": 1,
+						"min": -1,
+						"name": "cy",
+						"shortdesc": "Center.y",
+						"step": 0.01,
+						"type": "float"
+					}
+				],
+				"shortdesc": "sdVesica"
+			},
+			"type": "shader"
+		},
+		{
+			"name": "sdshow",
+			"node_position": {
+				"x": -955,
+				"y": 181
+			},
+			"parameters": {
+				"base": 0,
+				"bevel": 0.02
+			},
+			"seed": -6162,
+			"type": "sdshow"
+		},
+		{
+			"generic_size": 1,
+			"name": "transform2",
+			"node_position": {
+				"x": -531,
+				"y": 253
+			},
+			"parameters": {
+				"mode": 0,
+				"rotate": 0,
+				"scale_x": 0.3,
+				"scale_y": 1,
+				"translate_x": 0,
+				"translate_y": 0.07
+			},
+			"seed": -36274,
+			"type": "transform2"
+		},
+		{
+			"name": "tile2x2",
+			"node_position": {
+				"x": -249,
+				"y": 271
+			},
+			"parameters": {
+
+			},
+			"seed": -17450,
+			"type": "tile2x2"
+		},
+		{
+			"name": "warp",
+			"node_position": {
+				"x": -6.89856,
+				"y": 318
+			},
+			"parameters": {
+				"amount": 0.2,
+				"eps": 0.1,
+				"mode": 0
+			},
+			"seed": -48008,
+			"type": "warp"
+		},
+		{
+			"name": "fbm",
+			"node_position": {
+				"x": -142.89856,
+				"y": 525
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 3,
+				"noise": 1,
+				"persistence": 0.5,
+				"scale_x": 1,
+				"scale_y": 1
+			},
+			"seed": -33633,
+			"seed_locked": true,
+			"type": "fbm"
+		},
+		{
+			"name": "blend",
+			"node_position": {
+				"x": -798.89856,
+				"y": 297
+			},
+			"parameters": {
+				"amount": 1,
+				"blend_type": 2
+			},
+			"seed": -905,
+			"type": "blend"
+		},
+		{
+			"name": "gradient",
+			"node_position": {
+				"x": -1053.89856,
+				"y": 439
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 3,
+					"points": [
+						{
+							"a": 1,
+							"b": 0,
+							"g": 0,
+							"pos": 0.227273,
+							"r": 0
+						},
+						{
+							"a": 1,
+							"b": 0.237457,
+							"g": 0.237457,
+							"pos": 0.481818,
+							"r": 0.242188
+						},
+						{
+							"a": 1,
+							"b": 1,
+							"g": 1,
+							"pos": 1,
+							"r": 1
+						}
+					],
+					"type": "Gradient"
+				},
+				"repeat": 1,
+				"rotate": -90
+			},
+			"seed": -822,
+			"type": "gradient"
+		},
+		{
+			"name": "circle_splatter",
+			"node_position": {
+				"x": 301.10144,
+				"y": 218
+			},
+			"parameters": {
+				"count": 9,
+				"i_rotate": 1,
+				"i_scale": 0,
+				"inputs": 0,
+				"radius": 0.18,
+				"rings": 1,
+				"rotate": 0,
+				"scale": 0,
+				"scale_x": 0.72,
+				"scale_y": 0.52,
+				"spiral": 0,
+				"value": 0.67,
+				"variations": false
+			},
+			"seed": 38825,
+			"seed_locked": true,
+			"type": "circle_splatter"
+		},
+		{
+			"name": "tiler",
+			"node_position": {
+				"x": 1313.10144,
+				"y": 377
+			},
+			"parameters": {
+				"fixed_offset": 0.5,
+				"inputs": 0,
+				"offset": 0.1,
+				"overlap": 2,
+				"rotate": 180,
+				"scale": 0.2,
+				"scale_x": 0.4,
+				"scale_y": 0.4,
+				"tx": 12,
+				"ty": 12,
+				"value": 0.8,
+				"variations": false
+			},
+			"seed": 40070,
+			"seed_locked": true,
+			"type": "tiler"
+		},
+		{
+			"name": "buffer",
+			"node_position": {
+				"x": 610.10144,
+				"y": 259
+			},
+			"parameters": {
+				"lod": 0,
+				"size": 11
+			},
+			"seed": 9949,
+			"type": "buffer"
+		},
+		{
+			"name": "warp_2",
+			"node_position": {
+				"x": 945.35144,
+				"y": 480.75
+			},
+			"parameters": {
+				"amount": 0.1,
+				"eps": 0.1,
+				"mode": 0
+			},
+			"seed": 57487,
+			"type": "warp"
+		},
+		{
+			"name": "fbm_2",
+			"node_position": {
+				"x": 759.35144,
+				"y": 648.75
+			},
+			"parameters": {
+				"folds": 0,
+				"iterations": 3,
+				"noise": 1,
+				"persistence": 0.5,
+				"scale_x": 2,
+				"scale_y": 2
+			},
+			"seed": 18017,
+			"seed_locked": true,
+			"type": "fbm"
+		},
+		{
+			"name": "tile2x2_2",
+			"node_position": {
+				"x": 862.60144,
+				"y": 278
+			},
+			"parameters": {
+
+			},
+			"seed": 52084,
+			"type": "tile2x2"
+		},
+		{
+			"name": "buffer_2",
+			"node_position": {
+				"x": 1795.10144,
+				"y": 279
+			},
+			"parameters": {
+				"lod": 0,
+				"size": 11
+			},
+			"seed": 14154,
+			"type": "buffer"
+		},
+		{
+			"name": "normal_map",
+			"node_position": {
+				"x": 2133.101562,
+				"y": 147
+			},
+			"parameters": {
+				"param0": 11,
+				"param1": 0.1,
+				"param2": 0,
+				"param4": 1
+			},
+			"seed": 19928,
+			"type": "normal_map"
+		},
+		{
+			"name": "invert",
+			"node_position": {
+				"x": 2137.101562,
+				"y": 412
+			},
+			"parameters": {
+
+			},
+			"seed": 51291,
+			"type": "invert"
+		},
+		{
+			"name": "occlusion",
+			"node_position": {
+				"x": 2084.101562,
+				"y": 278
+			},
+			"parameters": {
+				"param0": 10,
+				"param2": 1.5
+			},
+			"seed": 22858,
+			"type": "occlusion"
+		},
+		{
+			"name": "colorize",
+			"node_position": {
+				"x": 2172.101562,
+				"y": -51
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 1,
+					"points": [
+						{
+							"a": 1,
+							"b": 0.100708,
+							"g": 0.390625,
+							"pos": 0,
+							"r": 0.230791
+						},
+						{
+							"a": 1,
+							"b": 0.108765,
+							"g": 0.440186,
+							"pos": 0.267275,
+							"r": 0.27124
+						},
+						{
+							"a": 1,
+							"b": 0.122131,
+							"g": 0.445312,
+							"pos": 0.353081,
+							"r": 0.276855
+						},
+						{
+							"a": 1,
+							"b": 0.171021,
+							"g": 0.521973,
+							"pos": 0.469748,
+							"r": 0.327881
+						},
+						{
+							"a": 1,
+							"b": 0.186646,
+							"g": 0.592773,
+							"pos": 0.564229,
+							"r": 0.359375
+						},
+						{
+							"a": 1,
+							"b": 0.25415,
+							"g": 0.674316,
+							"pos": 0.679432,
+							"r": 0.461426
+						},
+						{
+							"a": 1,
+							"b": 0.301961,
+							"g": 0.85098,
+							"pos": 0.827243,
+							"r": 0.686275
+						}
+					],
+					"type": "Gradient"
+				}
+			},
+			"seed": -2871,
+			"type": "colorize"
+		},
+		{
+			"name": "tones",
+			"node_position": {
+				"x": 1855.101562,
+				"y": -68
+			},
+			"parameters": {
+				"in_max": {
+					"a": 1,
+					"b": 0.622047,
+					"g": 0.622047,
+					"r": 0.622047,
+					"type": "Color"
+				},
+				"in_mid": {
+					"a": 0.5,
+					"b": 0.015748,
+					"g": 0.015748,
+					"r": 0.015748,
+					"type": "Color"
+				},
+				"in_min": {
+					"a": 0,
+					"b": 0,
+					"g": 0,
+					"r": 0,
+					"type": "Color"
+				},
+				"out_max": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"out_min": {
+					"a": 0,
+					"b": 0,
+					"g": 0,
+					"r": 0,
+					"type": "Color"
+				}
+			},
+			"seed": -33251,
+			"type": "tones"
+		},
+		{
+			"name": "adjust_hsv",
+			"node_position": {
+				"x": 2544.625,
+				"y": -81.166656
+			},
+			"parameters": {
+				"hue": 0,
+				"saturation": 1,
+				"value": 0.65
+			},
+			"seed": -17473,
+			"type": "adjust_hsv"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=4 uid="uid://g530nppg7t37"]
+
+[ext_resource type="Material" uid="uid://bbomi503h858c" path="res://materials/white.tres" id="1_c03ht"]
+[ext_resource type="Script" path="res://scenes/hex_tile_mesh.gd" id="1_ouin8"]
+[ext_resource type="Material" path="res://materials/sand.tres" id="1_toh0i"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kawgd"]
+_surfaces = [{
+"aabb": AABB(-0.866025, 0, -1, 1.73205, 1e-05, 2),
+"format": 34359738369,
+"material": ExtResource("1_c03ht"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAAA17NdPwAAAAAAAAC/17NdPwAAAAAAAAA/AAAAAAAAAAAAAAAA17NdPwAAAAAAAAA/MjGNJAAAAAAAAIA/AAAAAAAAAAAAAAAAMjGNJAAAAAAAAIA/17NdvwAAAAAAAAA/AAAAAAAAAAAAAAAA17NdvwAAAAAAAAA/17NdvwAAAAAAAAC/AAAAAAAAAAAAAAAA17NdvwAAAAAAAAC/yslTpQAAAAAAAIC/AAAAAAAAAAAAAAAAyslTpQAAAAAAAIC/17NdPwAAAAAAAAC/")
+}]
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_kawgd")
+surface_material_override/0 = ExtResource("1_toh0i")
+script = ExtResource("1_ouin8")
+material_index = 1
